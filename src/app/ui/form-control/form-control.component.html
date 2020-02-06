@@ -1,0 +1,9 @@
+<div class="FormControl">
+    <label class="FormControl-label">{{label}}</label>
+    <div class="FormControl-control">
+        <ng-content></ng-content>
+    </div>
+    <div class="FormControl-error">
+        {{ errorMsg$ | async }} 
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<ui-page-loader title="Загружаем список провайдеров" *ngIf="isLoading$ | async">
+</ui-page-loader>
+
+<form class="RechargeForm" *ngIf="!(isLoading$ | async)" #ngform="ngForm" (ngSubmit)="submit(ngform)">
+    <h3 class="RechargeForm-title">Пополнение мобильного телефона</h3>
+    <ui-form-control class="RechargeForm-control" label="Мобильный оператор">
+        <select
+            name="provider"
+            [(ngModel)]="model.provider"
+            (ngModelChange)="onProviderChanged($event)"
+            required
+        >
+            <option *ngFor="let opt of providerOpts$ | async" [value]="opt.value">{{ opt.label }}</option>
+        </select>
+    </ui-form-control>
+    <ui-form-control class="RechargeForm-control" label="Номер телефона">
+        <ui-tel-input
+            name="phone"
+            [(ngModel)]="model.phone"
+            required
+        ></ui-tel-input>
+    </ui-form-control>
+    <ui-form-control class="RechargeForm-control" label="Сумма пополнения">
+        <input 
+            name="amount" 
+            type="number"
+            [(ngModel)]="model.amount"
+            [min]="1"
+            [max]="1000"
+            required 
+            placeholder="Сумма пополнения (от 1 до 1000 руб)" 
+        />
+    </ui-form-control>
+    <ui-button class="primary RechargeForm-submitBtn" btnType="submit" [isLoading]="isSaving">пополнить</ui-button>
+</form>

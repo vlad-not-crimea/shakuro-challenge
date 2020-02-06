@@ -1,0 +1,26 @@
+@import "variables";
+
+.RechargeForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;;
+    align-items: center;
+
+    &-title {
+        text-transform: uppercase;
+        color: $links;
+        margin-bottom: 40px;
+    }
+
+    &-control {
+
+        margin-bottom: 10px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &-submitBtn {
+        width: 260px;
+    }
+}

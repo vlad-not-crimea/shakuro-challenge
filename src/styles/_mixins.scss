@@ -1,0 +1,21 @@
+/* Response a rule */
+@mixin response-rule($property, $defaultValue, $responsiveValues: ()) {
+  @if $defaultValue {
+    & {
+      #{$property}: $defaultValue;
+    }
+  } @else {
+    & {
+      #{$property}: map-get($responsiveValues, "default");
+    }
+  }
+  @each $media, $value in $responsiveValues {
+    @if $media != "default" {
+      @media #{$media} {
+        & {
+          #{$property}: $value;
+        }
+      }
+    }
+  }
+}

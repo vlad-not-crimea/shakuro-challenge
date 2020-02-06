@@ -1,0 +1,9 @@
+<input 
+    type="text" 
+    autocomplete="off" 
+    (keypress)="onInputKeyPress($event)" 
+    [ngModel]="value"
+    (ngModelChange)="onValueChanged($event)"
+    placeholder="+7 978 804 32 26"
+    #input
+>

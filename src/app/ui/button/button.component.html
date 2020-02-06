@@ -1,0 +1,8 @@
+<button
+    class="Btn"
+    [ngClass]="{'Btn--loading': isLoading}"
+    [disabled]="isDisabled"
+    [attr.type]="btnType !== 'submit' ? 'button' : 'submit' "
+>
+    <ng-content></ng-content>
+</button>

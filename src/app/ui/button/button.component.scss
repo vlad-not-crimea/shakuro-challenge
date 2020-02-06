@@ -1,0 +1,68 @@
+// default values
+:host {
+    height: 40px;
+    line-height: 38px;
+    width: 140px;
+    font-size: 13px;
+    display: block;
+}
+
+.Btn {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    transition: all .2s ease-in;
+    font-size: inherit;
+    overflow: hidden;
+
+    &:after {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        top: calc(50% - 4px);
+        left: calc(50% - 4px);
+        opacity: 0;
+        transition: all .2s ease-in;
+        animation: move 2s infinite .2s;
+
+        @keyframes move {
+            0% { tranform: translateX(0); }
+            25% { transform: translateX(50px);}
+            50% { transform: translateX(0); }
+            75% {transform: translateX(-50px);}
+            100% {transform:  translateX(0);}
+        }
+    }
+
+
+    &--loading {
+        color: transparent !important;
+        pointer-events: none;
+        &:after {
+            opacity: 1;
+        }
+    }
+}
+
+:host(.primary) {
+    .Btn {
+        color: white;
+        background-color: #5dc5ed;
+        &:after {
+            background-color: #fff;
+        }
+
+        &[disabled] {
+            background-color: rgb(174, 226, 246);
+        }
+    }
+}

@@ -1,0 +1,15 @@
+<ui-page-loader title="Загружаем список провайдеров" *ngIf="isLoading$ | async">
+</ui-page-loader>
+
+<div class="CellProvidersList" *ngIf="!(isLoading$ | async)">
+    <h3 class="CellProvidersList-title">Выберите оператора</h3>
+    <div class="CellProvidersList-list">
+        <app-cell-provider 
+            class="CellProvidersList-item"
+            *ngFor="let cp of cellProviders$ | async; trackBy: trackByIndex;"
+            [cellProvider]="cp"
+            [routerLink]="[cp.id]"
+        ></app-cell-provider>
+    </div>
+</div>
+

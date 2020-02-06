@@ -1,0 +1,16 @@
+:host {
+    display: block;
+    width: 100%;
+}
+
+.Footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: center;
+
+    &-container {
+        width: 640px;
+    }
+}
