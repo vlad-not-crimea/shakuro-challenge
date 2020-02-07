@@ -10,7 +10,7 @@ import { delay, map } from 'rxjs/operators';
 })
 export class FormControlComponent implements OnInit {
 
-  @ContentChild(NgControl, { static: false })
+  @ContentChild(NgControl)
   private control: NgControl;
 
   @Input()
